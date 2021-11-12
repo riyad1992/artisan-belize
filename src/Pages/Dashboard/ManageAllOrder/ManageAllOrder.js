@@ -7,7 +7,7 @@ const ManageAllOrder = () => {
     const [isDelete, setIsDelete] = useState(null);
     
     useEffect(()=>{
-        fetch('http://localhost:5000/manageOrder')
+        fetch('https://sleepy-headland-88881.herokuapp.com/manageOrder')
         .then(res => res.json())
         .then(data => setAllOrders(data))
     },[isDelete])

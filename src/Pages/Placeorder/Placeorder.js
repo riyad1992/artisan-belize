@@ -19,7 +19,7 @@ const Placeorder = () => {
   const handleShow = () => setShow(true);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://sleepy-headland-88881.herokuapp.com/products/${id}`)
         .then(res => res.json())
         .then(data => setProduct(data))
     },[id])
@@ -41,7 +41,7 @@ const Placeorder = () => {
             status: 'pending'
         }
         //send to the server
-        fetch('http://localhost:5000/customers', {
+        fetch('https://sleepy-headland-88881.herokuapp.com/customers', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

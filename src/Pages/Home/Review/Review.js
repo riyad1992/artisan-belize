@@ -6,7 +6,7 @@ const Review = () => {
     const [review, setReview] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/review')
+        fetch('https://sleepy-headland-88881.herokuapp.com/review')
         .then(res => res.json())
         .then(data => setReview(data))
     } ,[])
@@ -18,7 +18,7 @@ const Review = () => {
                     {
                         review.map(rv => <li>
                             <div>
-                                <img src={user.photoURL} alt=''/><span>Rating: {rv.status}</span>
+                                <img src={user.photoURL} alt=''/><span>Rating: {rv.rating}</span>
                                 <h6>{rv.customerName}</h6>
                                 <p>{rv.feedback}</p>
                             </div>

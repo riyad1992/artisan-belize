@@ -8,7 +8,7 @@ const ManageProduct = () => {
     const [isDelete, setIsDelete] = useState(null);
     
     useEffect(()=>{
-        fetch('http://localhost:5000/products')
+        fetch('https://sleepy-headland-88881.herokuapp.com/products')
         .then(res => res.json())
         .then(data => setAllProducts(data))
     },[isDelete])

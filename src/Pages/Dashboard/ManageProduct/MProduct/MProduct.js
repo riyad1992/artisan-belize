@@ -8,7 +8,7 @@ const MProduct = ({product, setIsDelete}) => {
         const proceed = window.confirm('Are you sure, you want to delete?');
     
         if(proceed) {
-            fetch(`http://localhost:5000/deleteproduct/${id}`, {
+            fetch(`https://sleepy-headland-88881.herokuapp.com/deleteproduct/${id}`, {
             method: "DELETE",
             headers: { "Content-type": "application/json" },
             })

@@ -8,7 +8,7 @@ const Myorders = () => {
     const [orders, setOrders] = useState([])
     const [isDelete, setIsDelete] = useState(null);
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${user?.email}`)
+        fetch(`https://sleepy-headland-88881.herokuapp.com/myOrders/${user?.email}`)
         .then(res => res.json())
         .then(data => setOrders(data))
     }, [ isDelete, user.email])

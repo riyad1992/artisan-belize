@@ -1,4 +1,4 @@
-// import { Alert, Button, CircularProgress, Container, Grid, TextField } from '@mui/material';
+
 import Button from '@restart/ui/esm/Button';
 import React, { useState } from 'react';
 import { Alert, Spinner } from 'react-bootstrap';
@@ -6,7 +6,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Footer from '../../Sheard/Footer/Footer';
 import Header from '../../Sheard/Header/Header';
-// import register from '../../../images/login.png'
+import register from '../../../images/register.jpg'
 
 const Register = () => {
     const [registerData, setRegisterData] = useState({})
@@ -32,22 +32,26 @@ const Register = () => {
     return (
         <div>
             <Header></Header>
-            <div className='row'>
+            <div className='row m-1 mb-5 mt-5'>
                 <div className='col-12 col-md-6'>
                     <form onSubmit={handleRegisterSubmit}>
-                        <input id="standard-basic" label="Your Name" variant="standard" name='name' onBlur={handleOnBlur} sx={{ width: '75%', m: 1 }} />
+                        <input id="standard-basic" label="Your Name" variant="standard" placeholder='Your Name' name='name' required onBlur={handleOnBlur} style={{ width: '75%', margin: '10px' }} />
+                        <br/>
 
-                        <input id="standard-basic" label="Your Email" variant="standard" name='email' type='email' onBlur={handleOnBlur} sx={{ width: '75%', m: 1 }} />
+                        <input id="standard-basic" label="Your Email" variant="standard" placeholder='Your Email' name='email' required type='email' onBlur={handleOnBlur} style={{ width: '75%', margin: '10px' }} />
+                        <br/>
 
-                        <input id="standard-basic" label="Your Password" variant="standard" name='password' onBlur={handleOnBlur} sx={{ width: '75%', m: 1 }} type='password' />
+                        <input id="standard-basic" label="Your Password" variant="standard" placeholder='Your Password' name='password' required onBlur={handleOnBlur} style={{ width: '75%', margin:'10px' }} type='password' />
+                        <br/>
 
-                        <input id="standard-basic" label="Confirm Your Password" variant="standard" name='password2' onBlur={handleOnBlur} sx={{ width: '75%', m: 1 }} type='password' />
+                        <input id="standard-basic" label="Confirm Your Password" variant="standard" placeholder='Confirm Your Password' name='password2' onBlur={handleOnBlur} style={{ width: '75%', margin: '10px' }} type='password' />
+                        <br/>
                         
-                        <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Register</Button>
+                        <Button style={{ width: '75%', margin: '10px' }} type="submit" variant="contained">Register</Button>
                         <NavLink
                             style={{ textDecoration: 'none' }}
                             to="/login">
-                            <Button variant="text">Already Register? Please Login</Button>
+                            <p variant="text">Already Register? Please Login</p>
                         </NavLink>
                         {isLoading && <Spinner animation="border" role="status">
                             <span className="visually-hidden">Loading...</span>
@@ -57,7 +61,7 @@ const Register = () => {
                     </form>
                 </div>
                 <div className='col-12 col-md-6'>
-                    {/* <img style={{width:'100%'}} src={register} alt=''/> */}
+                    <img style={{width:'100%'}} src={register} alt=''/>
                 </div>
             </div>
             <Footer></Footer>

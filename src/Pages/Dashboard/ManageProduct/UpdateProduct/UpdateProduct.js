@@ -10,7 +10,7 @@ const UpdateProduct = () => {
 
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://sleepy-headland-88881.herokuapp.com/products/${id}`)
         .then(res => res.json())
         .then(data => setProduct(data))
     },[id])
@@ -29,7 +29,7 @@ const UpdateProduct = () => {
             ...productInfo,
         }
         //send to the server
-        fetch(`http://localhost:5000/updateproduct/${id}`, {
+        fetch(`https://sleepy-headland-88881.herokuapp.com/updateproduct/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
