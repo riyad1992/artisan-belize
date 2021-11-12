@@ -28,6 +28,26 @@
   color: #61dafb;
 }
 
+ul li{
+  list-style-type: none;
+}
+
+button{
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(93.96deg, #4B26FF 0%, #B01EFF 100%);
+  box-shadow: 0px 10px 20px rgba(101, 41, 255, 0.15);
+}
+
+button:hover{
+  color: #FFFFFF;
+  background: linear-gradient(93.96deg,#B01EFF 0%, #4B26FF 100% );
+  box-shadow: 0px 10px 20px rgba(101, 41, 255, 0.3);
+  /* transform: translateY(-3px);   */
+  transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
