@@ -20,7 +20,7 @@ const Dashboard = () => {
             <h2 className='w-100 bg-primary text-white p-3'>Dashboard</h2>
             <div className='row container'>
                 <div style={{borderRight: '1px solid gray'}} className='col-12 col-md-3 text-start'>
-                    <Link to='/home'><h6>Home</h6></Link>
+                    <Link to='/home'><h6>Back to Home</h6></Link>
                     <Link to={`${url}`}><h6 color="inherit">Dashboard</h6></Link>
                     <Link to={`${url}/pay`}><h6 color="inherit">Start A Payment</h6></Link>
                     <Link to={`${url}/myorders`}><h6 color="inherit">My Orders</h6></Link>

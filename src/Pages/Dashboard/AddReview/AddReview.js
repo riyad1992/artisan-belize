@@ -1,11 +1,12 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useState } from 'react';
-import { Form } from 'react-bootstrap';
+import { Alert, Form } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 
 const AddReview = () => {
     const {user} = useAuth()
-    const initInfo = {customerName: user.displayName,feedback: 'no comments', rating: '5', img: user.photoURL}
+    const [success, setSuccess] = useState(false)
+    const initInfo = {customerName: user.displayName, feedback: 'no comments', rating: '5', img: user.photoURL}
     const [reviewInfo, setReviewInfo] = useState(initInfo);
 
     const handleOnBlur = e => {
@@ -31,7 +32,9 @@ const AddReview = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                if (data.insertedId) {
+                    setSuccess(true)
+                }
             });
 
         e.preventDefault();
@@ -70,6 +73,9 @@ const AddReview = () => {
                 <br/>
                 <Button type="submit" variant="contained">Submit</Button>
             </form>
+            {
+                success && <Alert variant='success'>Thank you for Your Feedback</Alert>
+            }
         </div>
     );
 };

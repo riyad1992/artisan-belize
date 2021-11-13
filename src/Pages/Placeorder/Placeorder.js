@@ -1,6 +1,6 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react';
-import { Modal } from 'react-bootstrap';
+import { Alert, Modal } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import Footer from '../Sheard/Footer/Footer';
@@ -10,6 +10,7 @@ import Header from '../Sheard/Header/Header';
 const Placeorder = () => {
     const {id} = useParams()
     const [product, setProduct] = useState({})
+    const [success, setSuccess] = useState(false)
     const [show, setShow] = useState(false);
     const { user } = useAuth();
     const initialInfo = { customerName: user.displayName, email: user.email, phone: '' }
@@ -33,6 +34,8 @@ const Placeorder = () => {
     }
 
     const handleCustomerSubmit = e => {
+        
+        e.preventDefault();
         // collect data
         const customer = {
             ...customerInfo,
@@ -50,20 +53,21 @@ const Placeorder = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                // if (data.insertedId) {
-                //     
-                //     handleClose()
-                // }
+                if (data.insertedId) {
+                    setSuccess(true)
+                    handleClose()
+                }
             });
-
-        e.preventDefault();
+            // handleClose()
     }
 
 
     return (
         <div>
             <Header></Header>
+            {
+                success && <Alert variant='success'>Thank you for Your Shopping</Alert>
+            }
             <div className='row container'>
                 <div className='col-12 col-md-6 p-5'>
                     <img src={product?.img} alt='Product' style={{width:'100%', borderRadius:'20px'}}/>
@@ -72,7 +76,7 @@ const Placeorder = () => {
                     <h2>{product?.name}</h2>
                     <h3 className='text-warning'>Price: ${product?.price} USD</h3>
                     <h4>Description: <br/><span style={{fontSize:'14px'}}>{product?.details}</span></h4>
-                    <button  onClick={handleShow}>Buy Now</button>
+                    <button onClick={handleShow}>Buy Now</button>
                 </div>
             </div>
             <>
@@ -85,7 +89,7 @@ const Placeorder = () => {
                             <input
                                 style={{ width: '90%', margin: '10px' }}
                                 id="outlined-size-small"
-                                name="patientName"
+                                name="customerName"
                                 onBlur={handleOnBlur}
                                 placeholder={user.displayName}
                                 size="small"

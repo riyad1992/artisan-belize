@@ -2,6 +2,8 @@ import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react';
 import { Alert, Form } from 'react-bootstrap';
 import { useParams } from 'react-router';
+import Footer from '../../Sheard/Footer/Footer';
+import Header from '../../Sheard/Header/Header';
 
 const UpdateOrder = () => {
     const {id} = useParams()
@@ -52,6 +54,7 @@ const UpdateOrder = () => {
 
     return (
         <div>
+            <Header></Header>
             <form onSubmit={handleCustomerSubmit}>
                 <input
                     style={{ width: '90%', margin: '10px' }}
@@ -81,6 +84,7 @@ const UpdateOrder = () => {
             {
                 success && <Alert variant='success'>Update Successfully</Alert>
             }
+            <Footer></Footer>
         </div>
     );
 };

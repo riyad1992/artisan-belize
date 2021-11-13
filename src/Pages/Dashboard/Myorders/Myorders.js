@@ -21,7 +21,7 @@ const Myorders = () => {
                         <th>Product Name</th>
                         <th>Price</th>
                         <th>Status</th>
-                        <th>Remarks</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
