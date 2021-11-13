@@ -63,7 +63,7 @@ const AddReview = () => {
                     size="small"
                 />
                 <br/>
-                <Form.Select aria-label="Default select example" onBlur={handleOnBlur} name="rating">
+                <Form.Select aria-label="Default select example" onBlur={handleOnBlur} style={{width:'90%', margin:'0 auto'}} name="rating">
                     <option placeholder='5'>5</option>
                     <option placeholder="4">4</option>
                     <option placeholder="3">3</option>
