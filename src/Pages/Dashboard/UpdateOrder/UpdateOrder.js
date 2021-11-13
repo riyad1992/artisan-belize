@@ -9,7 +9,7 @@ const UpdateOrder = () => {
     const {id} = useParams()
     const [success, setSuccess] = useState(false)
     const [order, setOrder] = useState({})
-    const initialInfo = { customerName: order.customerName, price: order.price, status: order.status}
+    const initialInfo = { customerName: order.customerName, status: order.status}
     const [orderInfo, setOrderInfo] = useState(initialInfo);
 
 
@@ -65,7 +65,7 @@ const UpdateOrder = () => {
                     size="small"
                 />
                 <br/>
-                <input
+                {/* <input
                     style={{ width: '90%', margin:' 10px '}}
                     id="outlined-size-small"
                     name="price"
@@ -73,7 +73,7 @@ const UpdateOrder = () => {
                     placeholder={order.price}
                     size="small"
                 />
-                <br/>
+                <br/> */}
                 <Form.Select aria-label="Default select example" onBlur={handleOnBlur} name="status">
                     <option placeholder={order.status}>{order.status}</option>
                     <option placeholder="Shipped">Shipped</option>
