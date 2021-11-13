@@ -1,10 +1,12 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react';
+import { Alert } from 'react-bootstrap';
 import { useParams } from 'react-router';
 
 const UpdateProduct = () => {
     const {id} = useParams()
     const [product, setProduct] = useState({})
+    const [success, setSuccess] = useState(false)
     const initialInfo = { name: product.name, price: product.price, details: product.details}
     const [productInfo, setProductInfo] = useState(initialInfo);
 
@@ -38,7 +40,10 @@ const UpdateProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                if(data.modifiedCount> 0){
+                    setProductInfo('')
+                    setSuccess(true)
+                }
             });
 
         e.preventDefault();
@@ -75,17 +80,12 @@ const UpdateProduct = () => {
                     size="small"
                 />
                 <br/>
-                {/* <input
-                    style={{ width: '90%', margin: '10px' }}
-                    id="outlined-size-small"
-                    name="status"
-                    onBlur={handleOnBlur}
-                    defaultValue={order.status}
-                    size="small"
-                /> */}
                 <br/>
                 <Button type="submit" variant="contained">Submit</Button>
             </form>
+            {
+                success && <Alert variant='success'>Update Successfully</Alert>
+            }
         </div>
     );
 };
