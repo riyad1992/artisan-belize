@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import './Review.css'
-import profile from '../../../images/user.png'
+import profile from '../../../../images/user.png'
 import Rating from 'react-rating';
-import { Link } from 'react-router-dom';
+import Header from '../../../Sheard/Header/Header';
+import Footer from '../../../Sheard/Footer/Footer';
 
 
-const Review = () => {
+const AllReview = () => {
     const [review, setReview] = useState([])
 
     useEffect(() => {
@@ -14,14 +14,15 @@ const Review = () => {
         .then(data => setReview(data))
     } ,[])
     return (
-        <div className='container'>
+        <div>
+            <Header></Header>
             <h1>What Our Customers Says</h1>
             <hr className='w-25 mx-auto bg-danger mb-4 mt-0'/>
-            <Link to='/allreviews'><p className='text-start'>Reviews ({review.length})</p></Link>
+            <h6>Total Review({review.length})</h6>
             <div>
-                <ul className='row'>
+                <ul className='row container'>
                     {
-                        review.slice(0, 3).map(rv => <li className='col-12 col-md-6 col-lg-4'>
+                        review.map(rv => <li className='col-12 col-md-6 col-lg-4'>
                             <div>
                                 <img className='review-img' src={rv.img ? rv.img : profile} alt=''/>
                                 <span>{rv.customerName}</span>
@@ -36,8 +37,9 @@ const Review = () => {
                     }
                 </ul>
             </div>
+            <Footer></Footer>
         </div>
     );
 };
 
-export default Review;
+export default AllReview;

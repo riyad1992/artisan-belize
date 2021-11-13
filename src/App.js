@@ -15,6 +15,7 @@ import AllProducts from './Pages/AllProducts/AllProducts';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import UpdateOrder from './Pages/Dashboard/UpdateOrder/UpdateOrder';
 import UpdateProduct from './Pages/Dashboard/ManageProduct/UpdateProduct/UpdateProduct';
+import AllReview from './Pages/Home/Review/AllReview/AllReview';
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
             </Route>
             <Route path='/products'>
               <AllProducts></AllProducts>
+            </Route>
+            <Route path='/allreviews'>
+              <AllReview></AllReview>
             </Route>
             <PrivateRoute path='/placeorder/:id'>
               <Placeorder></Placeorder>

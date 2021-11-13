@@ -1,10 +1,11 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useEffect, useState } from 'react';
-import { Form } from 'react-bootstrap';
+import { Alert, Form } from 'react-bootstrap';
 import { useParams } from 'react-router';
 
 const UpdateOrder = () => {
     const {id} = useParams()
+    const [success, setSuccess] = useState(false)
     const [order, setOrder] = useState({})
     const initialInfo = { customerName: order.customerName, price: order.price, status: order.status}
     const [orderInfo, setOrderInfo] = useState(initialInfo);
@@ -39,7 +40,10 @@ const UpdateOrder = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                if(data.modifiedCount> 0){
+                    setOrderInfo('')
+                    setSuccess(true)
+                }
             });
 
         e.preventDefault();
@@ -67,15 +71,6 @@ const UpdateOrder = () => {
                     size="small"
                 />
                 <br/>
-                {/* <input
-                    style={{ width: '90%', margin: '10px' }}
-                    id="outlined-size-small"
-                    name="status"
-                    onBlur={handleOnBlur}
-                    defaultValue={order.status}
-                    size="small"
-                /> */}
-                <br/>
                 <Form.Select aria-label="Default select example" onBlur={handleOnBlur} name="status">
                     <option placeholder={order.status}>{order.status}</option>
                     <option placeholder="Shipped">Shipped</option>
@@ -83,6 +78,9 @@ const UpdateOrder = () => {
                 <br/>
                 <Button type="submit" variant="contained">Submit</Button>
             </form>
+            {
+                success && <Alert variant='success'>Update Successfully</Alert>
+            }
         </div>
     );
 };

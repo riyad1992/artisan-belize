@@ -17,9 +17,9 @@ const Dashboard = () => {
 
     return (
         <div>
-            <h2 className='w-100 bg-primary'>Dashboard</h2>
+            <h2 className='w-100 bg-primary text-white p-3'>Dashboard</h2>
             <div className='row container'>
-                <div className='col-12 col-md-3 text-start'>
+                <div style={{borderRight: '1px solid gray'}} className='col-12 col-md-3 text-start'>
                     <Link to='/home'><h6>Home</h6></Link>
                     <Link to={`${url}`}><h6 color="inherit">Dashboard</h6></Link>
                     <Link to={`${url}/pay`}><h6 color="inherit">Start A Payment</h6></Link>
@@ -61,9 +61,6 @@ const Dashboard = () => {
                         <AdminRoute path={`${path}/manageaProduct`}>
                             <ManageProduct></ManageProduct>
                         </AdminRoute>
-                        {/* <AdminRoute path={`${path}/updateorder`}>
-                            <UpdateOrder></UpdateOrder>
-                        </AdminRoute> */}
                     </Switch>
                 </div>
             </div>

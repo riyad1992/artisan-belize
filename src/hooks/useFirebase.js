@@ -2,9 +2,7 @@
 import { useState, useEffect } from 'react';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
 import initializeFirebase from '../Pages/Login/Firebase/Firebase.init';
-// getIdToken,
 
-// initialize firebase app
 initializeFirebase();
 
 const useFirebase = () => {
@@ -12,7 +10,6 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
     const [admin, setAdmin] = useState(false)
-    // const [token, setToken] = useState('')
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -71,6 +68,7 @@ const useFirebase = () => {
 
     // observer admin
     useEffect(() =>{
+        // setIsLoading(true)
         fetch(`https://sleepy-headland-88881.herokuapp.com/users/${user.email}`)
         .then(res => res.json())
         .then(data => setAdmin(data.admin))

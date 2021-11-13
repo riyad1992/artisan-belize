@@ -19,6 +19,7 @@ const MakeAdmin = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
+                    setEmail('')
                     setSuccess(true);
                 }
             })
@@ -31,7 +32,7 @@ const MakeAdmin = () => {
                 <button type='submit'>Make Admin</button>
             </form>
             {
-                success && <Alert variant='success'></Alert>
+                success && <Alert variant='success'>Make A Admin Successfully</Alert>
             }
         </div>
     );

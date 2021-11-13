@@ -52,9 +52,7 @@ const Placeorder = () => {
             .then(data => {
                 console.log(data)
                 // if (data.insertedId) {
-                //     console.log('success')
-                //     // setBookingSuccess(true);
-                //     // handleBookingClose();
+                //     
                 //     handleClose()
                 // }
             });
@@ -83,7 +81,7 @@ const Placeorder = () => {
                     <Modal.Title>{product.name}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <form show={show} onSubmit={handleCustomerSubmit}>
+                        <form onSubmit={handleCustomerSubmit}>
                             <input
                                 style={{ width: '90%', margin: '10px' }}
                                 id="outlined-size-small"
