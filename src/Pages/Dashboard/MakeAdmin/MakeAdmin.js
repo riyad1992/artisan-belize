@@ -9,7 +9,7 @@ const MakeAdmin = () => {
     }
     const handleSubmit = e => {
         const user = {email}
-        fetch('https://sleepy-headland-88881.herokuapp.com/customers/admin', {
+        fetch('https://sleepy-headland-88881.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

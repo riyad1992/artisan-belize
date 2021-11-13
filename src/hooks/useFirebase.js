@@ -25,7 +25,7 @@ const useFirebase = () => {
                 const newUser = { email, displayName: name };
                 setUser(newUser);
                 // save to database
-                // saveUser(email, name, 'POST')
+                saveUser(email, name, 'POST')
                 // send name to firebase after creation
                 updateProfile(auth.currentUser, {
                     displayName: name
@@ -60,7 +60,7 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                // saveUser(result.user.email, result.user.displayName, 'PUT')
+                saveUser(result.user.email, result.user.displayName, 'PUT')
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
                 setAuthError('');
@@ -102,21 +102,20 @@ const useFirebase = () => {
         }).finally(() => setIsLoading(false));
     }
 
-    // const saveUser = (email, displayName, method) => {
-    //     const user = {email, displayName}
-    //     fetch('https://sleepy-headland-88881.herokuapp.com/users', {
-    //         method: method,
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(user)
-    //     })
-    // }
+    const saveUser = (email, displayName, method) => {
+        const user = {email, displayName}
+        fetch('https://sleepy-headland-88881.herokuapp.com/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+    }
 
     return {
         user,
         admin,
-        // token,
         isLoading,
         authError,
         registerUser,
