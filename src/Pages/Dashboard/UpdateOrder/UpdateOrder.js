@@ -65,16 +65,7 @@ const UpdateOrder = () => {
                     size="small"
                 />
                 <br/>
-                {/* <input
-                    style={{ width: '90%', margin:' 10px '}}
-                    id="outlined-size-small"
-                    name="price"
-                    onBlur={handleOnBlur}
-                    placeholder={order.price}
-                    size="small"
-                />
-                <br/> */}
-                <Form.Select aria-label="Default select example" onBlur={handleOnBlur} name="status">
+                <Form.Select aria-label="Default select example" onBlur={handleOnBlur} style={{width:'90%', margin:'0 auto'}} name="status">
                     <option placeholder={order.status}>{order.status}</option>
                     <option placeholder="Shipped">Shipped</option>
                 </Form.Select>

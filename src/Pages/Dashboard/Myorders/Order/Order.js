@@ -28,7 +28,7 @@ const Order = ({order, setIsDelete}) => {
             <td>{productName}</td>
             <td>${price}</td>
             <td>{status}</td>
-            <td><button onClick={() => handleDeleteOrder(_id)}>Delete</button> <button>Update</button></td>
+            <td><button onClick={() => handleDeleteOrder(_id)}>Delete</button></td>
         </tr>
     );
 };
